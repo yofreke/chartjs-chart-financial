@@ -20,7 +20,9 @@ Most chart libraries don't have great handling of timescale axes. [AmCharts](htt
 
 Chart.js will be the only popular JavaScript library that is both performant and has good timescale handling once the issues above are completed.
 
-## Building
+## Samples and Building
+
+You currently must build the library to view the provided samples. You can build by running the following:
 
 ```sh
 npm install
