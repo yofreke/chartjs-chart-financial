@@ -1,9 +1,21 @@
 'use strict';
 
-var Chart = require('chart.js');
-Chart = typeof(Chart) === 'function' ? Chart : window.Chart;
+var registerPlugin = function(
+  ChartJs
+) {
+  if (!ChartJs) {
+    ChartJs = require('chart.js');
+    if (typeof(Chart) !== 'function') {
+      ChartJs = window.Chart;
+    }
+  }
 
-require('./element.candlestick.js')(Chart);
-require('./scale.financialLinear.js')(Chart);
-require('./scale.timeseries.js')(Chart);
-require('./controller.financial.js')(Chart);
+  require('./element.candlestick.js')(ChartJs);
+  require('./scale.financialLinear.js')(ChartJs);
+  require('./scale.timeseries.js')(ChartJs);
+  require('./controller.financial.js')(ChartJs);
+}
+
+module.exports = {
+  registerPlugin: registerPlugin
+};
